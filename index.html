@@ -114,8 +114,8 @@
     .g-orange{ background: linear-gradient(135deg, #ff9f0a, #ff6a00); }
     .g-green{ background: linear-gradient(135deg, #34c759, #00a65a); }
     .g-gray{ background: linear-gradient(135deg, #8e8e93, #4d4d50); }
-    .g-red{ background: linear-gradient(135deg, #ff453a, #ff2d55); }            /* YouTube */
-    .g-ig{ background: linear-gradient(135deg, #ffcc00, #ff2d55, #5856d6); }    /* Instagram */
+    .g-red{ background: linear-gradient(135deg, #ff453a, #ff2d55); }
+    .g-ig{ background: linear-gradient(135deg, #ffcc00, #ff2d55, #5856d6); }
 
     .btn .txt{ display:flex; flex-direction:column; gap:2px; min-width:0; }
     .btn .txt .t{ font-size:13.5px; font-weight:700; letter-spacing:-0.01em; }
@@ -153,11 +153,40 @@
         </div>
       </section>
 
-      <!-- BUTTONS -->
+      <!-- BUTTONS (ORDER UPDATED) -->
       <section class="card">
         <div class="card-inner">
           <div class="actions">
 
+            <!-- 1) WhatsApp -->
+            <a class="btn" href="https://wa.me/918860086712" target="_blank" rel="noopener">
+              <div class="ico g-green" aria-hidden="true">
+                <!-- Chat bubble -->
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.6-3.2A8 8 0 1 1 21 12Z" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">WhatsApp</div>
+                <div class="s">+91 88600 86712</div>
+              </div>
+            </a>
+
+            <!-- 2) Call -->
+            <a class="btn" href="tel:+918860086712">
+              <div class="ico g-gray" aria-hidden="true">
+                <!-- Phone -->
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 3h3l1 5-2 1c1.2 2.6 3.3 4.7 5.9 5.9l1-2 5 1v3c0 1-1 2-2 2-9.4 0-17-7.6-17-17 0-1 1-2 2-2Z" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">Call</div>
+                <div class="s">+91 88600 86712</div>
+              </div>
+            </a>
+
+            <!-- 3) Website -->
             <a class="btn" href="https://www.grouphca.com/" target="_blank" rel="noopener">
               <div class="ico g-blue" aria-hidden="true">
                 <!-- Globe -->
@@ -173,6 +202,7 @@
               </div>
             </a>
 
+            <!-- 4) Email -->
             <a class="btn" href="mailto:Enquiry@grouphca.com">
               <div class="ico g-orange" aria-hidden="true">
                 <!-- Mail -->
@@ -187,33 +217,7 @@
               </div>
             </a>
 
-            <a class="btn" href="https://wa.me/918860086712" target="_blank" rel="noopener">
-              <div class="ico g-green" aria-hidden="true">
-                <!-- Chat bubble -->
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.6-3.2A8 8 0 1 1 21 12Z" stroke="white" stroke-width="2" opacity=".95"/>
-                </svg>
-              </div>
-              <div class="txt">
-                <div class="t">WhatsApp</div>
-                <div class="s">+91 88600 86712</div>
-              </div>
-            </a>
-
-            <a class="btn" href="tel:+918860086712">
-              <div class="ico g-gray" aria-hidden="true">
-                <!-- Phone -->
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 3h3l1 5-2 1c1.2 2.6 3.3 4.7 5.9 5.9l1-2 5 1v3c0 1-1 2-2 2-9.4 0-17-7.6-17-17 0-1 1-2 2-2Z" stroke="white" stroke-width="2" opacity=".95"/>
-                </svg>
-              </div>
-              <div class="txt">
-                <div class="t">Call</div>
-                <div class="s">+91 88600 86712</div>
-              </div>
-            </a>
-
-            <!-- YouTube -->
+            <!-- 5) YouTube -->
             <a class="btn" href="https://www.youtube.com/@HCA_Co" target="_blank" rel="noopener">
               <div class="ico g-red" aria-hidden="true">
                 <!-- YouTube play -->
@@ -229,7 +233,7 @@
               </div>
             </a>
 
-            <!-- Instagram -->
+            <!-- 6) Instagram -->
             <a class="btn" href="https://www.instagram.com/hca.co?igsh=MWNuYW5wY2g2Y3QzNg==" target="_blank" rel="noopener">
               <div class="ico g-ig" aria-hidden="true">
                 <!-- Instagram camera -->
