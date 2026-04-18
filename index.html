@@ -77,7 +77,16 @@
     .hero{
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:14px;
+    }
+
+    .hero-main{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+      flex:1;
     }
 
     .app-icon{
@@ -117,11 +126,44 @@
       text-overflow:ellipsis;
     }
 
-    .hero-title p{
-      margin:0;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.35;
+    .save-icon-btn{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.07);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,245,247,0.95));
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      transition:
+        transform 180ms var(--ease),
+        background 180ms var(--ease),
+        box-shadow 180ms var(--ease),
+        border-color 180ms var(--ease);
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .save-icon-btn:hover{
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, #ffffff, #f7f7f9);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,1);
+    }
+
+    .save-icon-btn:active{
+      transform: scale(0.97);
+    }
+
+    .save-icon-btn svg{
+      width:18px;
+      height:18px;
+      display:block;
     }
 
     .actions{
@@ -223,12 +265,22 @@
       <!-- HERO -->
       <section class="card">
         <div class="card-inner hero">
-          <div class="app-icon">
-            <img src="https://www.grouphca.com/cdn/shop/files/logo_1_280x.png?v=1722238275" alt="HCA Group Logo">
+          <div class="hero-main">
+            <div class="app-icon">
+              <img src="https://www.grouphca.com/cdn/shop/files/logo_1_280x.png?v=1722238275" alt="HCA Group Logo">
+            </div>
+            <div class="hero-title">
+              <h1>Hari Chand Anand &amp; Co.</h1>
+            </div>
           </div>
-          <div class="hero-title">
-            <h1>Hari Chand Anand &amp; Co.</h1>
-          </div>
+
+          <a href="#" class="save-icon-btn save-contact-trigger" aria-label="Download Contact" title="Download Contact">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v9" stroke="#1666d9" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8.5 10.5L12 14l3.5-3.5" stroke="#1666d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 17v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1" stroke="#1666d9" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
         </div>
       </section>
 
@@ -322,20 +374,6 @@
               </div>
             </a>
 
-            <!-- 7) Save Contact -->
-            <a class="btn" href="#" id="saveContactBtn">
-              <div class="ico g-blue" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="white" stroke-width="2" opacity=".95"/>
-                  <path d="M4 20a8 8 0 0 1 16 0" stroke="white" stroke-width="2" opacity=".95"/>
-                </svg>
-              </div>
-              <div class="txt">
-                <div class="t">Save Contact</div>
-                <div class="s">Add to phone</div>
-              </div>
-            </a>
-
           </div>
         </div>
       </section>
@@ -348,34 +386,36 @@
   </div>
 
   <script>
-    document.getElementById('saveContactBtn').addEventListener('click', function (e) {
-      e.preventDefault();
+    document.querySelectorAll('.save-contact-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
 
-      const vcard = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'FN:Bhavya Anand',
-        'ORG:Hari Chand Anand & Co.',
-        'TITLE:Sales Director',
-        'TEL;TYPE=CELL:+919310156027',
-        'EMAIL:bhavyaanand@grouphca.com',
-        'URL:https://www.grouphca.com/',
-        'END:VCARD'
-      ].join('\r\n');
+        const vcard = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'FN:Bhavya Anand',
+          'ORG:Hari Chand Anand & Co.',
+          'TITLE:Sales Director',
+          'TEL;TYPE=CELL:+919310156027',
+          'EMAIL:bhavyaanand@grouphca.com',
+          'URL:https://www.grouphca.com/',
+          'END:VCARD'
+        ].join('\r\n');
 
-      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
+        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
 
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'bhavya-anand-contact.vcf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'bhavya-anand-contact.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
 
-      setTimeout(function () {
-        URL.revokeObjectURL(url);
-      }, 1000);
+        setTimeout(function () {
+          URL.revokeObjectURL(url);
+        }, 1000);
+      });
     });
   </script>
 </body>
